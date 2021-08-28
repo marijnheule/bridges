@@ -12,4 +12,4 @@ set -x
 CNF=$1
 OUT=$2
 
-~/bridges/lKissat.sh $CNF $OUT --forcephase=1 --phase=0 --stable=2 $2 $3 $4 $5
+~/bridges/lKissat.sh $CNF $OUT --forcephase=1 --phase=0 --stable=2 $3 $4 $5 $6

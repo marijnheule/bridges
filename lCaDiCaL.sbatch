@@ -12,4 +12,4 @@ set -x
 CNF=$1
 OUT=$2
 
-~/bridges/lCaDiCaL.sh $CNF $OUT --forcephase=1 --phase=0 --sat $2 $3 $4 $5
+~/bridges/lCaDiCaL.sh $CNF $OUT --forcephase=1 --phase=0 --sat $3 $4 $5 $6
