@@ -21,3 +21,5 @@ cp kissat/build/kissat ~/bin/
 cp cadical/build/cadical ~/bin/
 cp scranfilize/scranfilize ~/bin/
 cd ..
+
+cp *.sbatch ~
