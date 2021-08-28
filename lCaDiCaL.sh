@@ -5,6 +5,6 @@ mkdir ~/log/
 
 for i in {1..128}
 do
-  ./CaDiCal-loop.sh $CNF $OUT $3 $4 $5 $6 $7 $8 $9 &
+  ~/bridges/CaDiCal-loop.sh $CNF $OUT $3 $4 $5 $6 $7 $8 $9 &
 done
 wait
