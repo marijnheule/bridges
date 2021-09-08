@@ -11,4 +11,4 @@ set -x
 
 CNF=$1
 
-~/bridges/pCaDiCaL.sh $CNF --forcephase=1 --phase=0 --sat $2 $3 $4 $5 $6
+~/bridges/pCaDiCaL.sh $CNF $2 $3 $4 $5 $6 $7 $8 $9

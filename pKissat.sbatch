@@ -11,4 +11,4 @@ set -x
 
 CNF=$1
 
-~/bridges/pKissat.sh $CNF --forcephase=1 --phase=0 --stable=2 $2 $3 $4 $5 $6
+~/bridges/pKissat.sh $CNF $2 $3 $4 $5 $6 $7 $8 $9
