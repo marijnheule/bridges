@@ -17,6 +17,10 @@ cd scranfilize
 make
 cd ..
 
+cd ubcsat
+make
+cd ..
+
 wget http://fmv.jku.at/yalsat/yalsat-03v.zip
 unzip yalsat-03v.zip
 cd yalsat-03v
@@ -29,6 +33,7 @@ cp kissat/build/kissat ~/bin/
 cp cadical/build/cadical ~/bin/
 cp scranfilize/scranfilize ~/bin/
 cp yalsat-03v/palsat ~/bin
+cp ubcsat/ubcsat ~/bin
 cd ..
 
 
