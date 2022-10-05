@@ -4,6 +4,8 @@ cd tools
 git clone https://github.com/arminbiere/kissat
 git clone https://github.com/arminbiere/cadical
 git clone https://github.com/arminbiere/scranfilize
+git clone https://github.com/marijnheule/drat-trim
+git clone https://github.com/tanyongkiam/cake_lpr
 cd cadical
 ./configure
 make
@@ -16,7 +18,12 @@ cd scranfilize
 ./configure
 make
 cd ..
-
+cd drat-trim
+make
+cd ..
+cd cake_lpr
+make
+cd ..
 cd ubcsat
 make
 cd ..
@@ -34,6 +41,8 @@ cp cadical/build/cadical ~/bin/
 cp scranfilize/scranfilize ~/bin/
 cp yalsat-03v/palsat ~/bin
 cp ubcsat/ubcsat ~/bin
+cp drat-trim/drat-trim ~/bin
+cp cake_lpr/cake_lpr ~/bin
 cd ..
 
 
