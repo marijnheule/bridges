@@ -1,11 +1,16 @@
 CNF=$1
 FILE=${CNF##*/}
 BASE=${FILE%.*}
+ALG=$2
+SETA=$3
+SETB=$3
+RUN=100
+CUT=100000000
 
 mkdir ~/log/
 
-for SEED in `cat ~/seeds.txt`
+for i in {1..128}
 do
-  scranfilize -s $SEED -f 0 -v 0 -c 1 $CNF | ubcsat -alg ddfw -cutoff 10000000000 -seed $SEED -solve > ~/log/$BASE-UL-$SEED.log &
+   ~/bridges/UBCsat-loop.sh $CNF $ALG $RUN $CUT $SETA $SETB &
 done
 wait
