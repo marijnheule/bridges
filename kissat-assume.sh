@@ -24,5 +24,4 @@ do
   echo $CUBE" "$RUNT
 
   rm $BASE.tmp
-
 done
