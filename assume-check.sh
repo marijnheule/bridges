@@ -18,12 +18,17 @@ cat $ICNF | grep "^a " > $BASE.cube
 
 for (( i=1; i<=$SIZE; i++ ))
 do
+  mkfifo pipe$$
   CUBE=$((($i-1)*$STEP + $INIT))
   ~/bridges/apply.sh $BASE.cnf $BASE.cube $i > $BASE.tmp
-  RUNT=`cadical --sat --plain --reducetarget=10 $BASE.tmp | grep -e "total real" -e "SATIS" | awk '/SATIS/ {print $2} /total/ {printf $7" "}'`
+  CHECK=`cake_lpr $BASE.tmp pipe$$ &`
+  RUNT=`cadical --sat --plain --reducetarget=10 $BASE.tmp pipe$$ --lrat --no-binary | \
+        grep -e "total real" -e "SATIS" | awk '/SATIS/ {print $2} /total/ {printf $7" "}'`
   MD=`cat $BASE.cube | head -n $i | tail -n 1 | md5sum | cut -c1-6`
-  echo $CUBE" "$MD" "$RUNT
+  wait
+  echo $CUBE" "$MD" "$RUNT" "$CHECK
 
+  rm pipe$$
   rm $BASE.tmp
 
 done
