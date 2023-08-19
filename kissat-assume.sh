@@ -21,7 +21,8 @@ do
   CUBE=$((($i-1)*$STEP + $INIT))
   ~/bridges/apply.sh $BASE.cnf $BASE.cube $i > $BASE.tmp
   RUNT=`kissat --stable=2 --no-eliminate --no-simplify --reducefraction=10 $BASE.tmp | grep -e "process-time" -e "SATIS" | awk '/SATIS/ {print $2} /process-time/ {printf $(NF-1)" "}'`
-  echo $CUBE" "$RUNT
+  MD=`cat $BASE.cube | head -n $i | tail -n 1 | md5sum | cut -c1-6`
+  echo $CUBE" "$MD" "$RUNT
 
   rm $BASE.tmp
 done

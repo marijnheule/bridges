@@ -21,7 +21,8 @@ do
   CUBE=$((($i-1)*$STEP + $INIT))
   ~/bridges/apply.sh $BASE.cnf $BASE.cube $i > $BASE.tmp
   RUNT=`cadical --sat --no-elim $BASE.tmp | grep -e "total real" -e "SATIS" | awk '/SATIS/ {print $2} /total/ {printf $7" "}'`
-  echo $CUBE" "$RUNT
+  MD=`cat $BASE.cube | head -n $i | tail -n 1 | md5sum | cut -c1-6`
+  echo $CUBE" "$MD" "$RUNT
 
   rm $BASE.tmp
 
