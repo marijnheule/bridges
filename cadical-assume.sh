@@ -5,7 +5,7 @@ STEP=$3
 if [ -z "$INIT" ]; then INIT=1; fi
 if [ -z "$STEP" ]; then STEP=1; fi
 
-NVAR=`cat $ICNF | grep -v "^a " | grep -v "c " | grep " 0" | awk 'BEGIN{max = -inf} {if ($1 > max) max = $1} END{print max}'`
+NVAR=`cat $ICNF | grep -v "^a " | grep -v "c " | grep " 0" | tr " " "\n" | awk 'BEGIN{max = -inf} {if ($1 > max) max = $1} END{print max}'`
 NCLS=`cat $ICNF | grep -v "^a " | grep -v "c " | grep " 0" | wc | awk '{print $1}'`
 
 #echo $NVAR" "$NCLS
